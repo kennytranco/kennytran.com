@@ -1,0 +1,44 @@
+/*******************************************************************************
+//
+//
+//
+//  #SECTION
+//
+//
+//
+*******************************************************************************/
+
+.c-section {
+    // html.js {
+    //     opacity: 0;
+    //     transition: opacity .75s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    // }
+
+    // html.js.is-page-ready & {
+    //     opacity: 1;
+    // }
+
+    &.-height-full {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    &.-padding-y {
+        padding-top: map-get($spacers, xxl);
+        padding-bottom: map-get($spacers, xxl) - map-get($spacers, md);
+
+        @include mq-at-least(md) {
+            padding-top: map-get($spacers, xxxxl);
+            padding-bottom: map-get($spacers, xxxxl) - map-get($spacers, md);
+        }
+    }
+
+    &.-padding-bottom {
+        padding-bottom: map-get($spacers, xxl) - map-get($spacers, md);
+
+        @include mq-at-least(md) {
+            padding-bottom: map-get($spacers, xxxxl) - map-get($spacers, md);
+        }
+    }
+}

@@ -1,0 +1,470 @@
+//******************************************************************************
+//
+//
+//
+//  #MIXINS
+//  -> Global mixins
+//
+//  CONTENTS
+//    #CLEARFIX
+//    #FONT SIZE
+//    #FONT SIZE FLUID
+//    #HIDE
+//    #HIDE TEXT
+//    #LAST CHILD
+//    #MEDIA QUERY AT LEAST
+//    #MEDIA QUERY BETWEEN
+//    #MEDIA QUERY FlUID
+//    #MEDIA QUERY GRADUAL
+//    #MEDIA QUERY UNTIL
+//    #MEDIA QUERY RETINA
+//    #MODERNIZR
+//    #PLACEHOLDER
+//    #QUANTITY QUERY
+//    #REM FALLBACK
+//
+//
+//
+//******************************************************************************
+
+
+
+
+
+//******************************************************************************
+//
+//  #CLEARFIX
+//  -> Clear child floats
+//
+//******************************************************************************
+
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #FONT SIZE
+//  -> Generate font-size and line-height in rem
+//
+//******************************************************************************
+
+@mixin font-size($font-size-value, $line-height: auto, $important: false) {
+    @include rem-fallback(font-size, $font-size-value, $important);
+
+    @if $line-height == auto {
+        @if ($important == true) {
+            $important: !important;
+        } @else if ($important == false) {
+            $important: null;
+        } @else {
+            @error "`#{$important}` needs to be `true` or `false`.";
+        }
+
+        $lines: ceil($font-size-value / 6) + 1;
+        $line-height: $lines * 6;
+
+        line-height: ($line-height / $font-size-value) $important;
+    } @else if ($line-height != false) {
+        @include rem-fallback(line-height, $line-height, $important);
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #FONT SIZE FLUID
+//  -> Generate responsive font-size
+//
+//******************************************************************************
+
+@mixin font-size-fluid($font-size-min, $font-size-max, $breakpoint-min: map-get($breakpoints, xs), $breakpoint-max: map-get($breakpoints, xxl)) {
+    font-size: calc(#{$font-size-min} + #{strip-unit($font-size-max - $font-size-min)} * ((100vw - #{$breakpoint-min}) / #{strip-unit($breakpoint-max - $breakpoint-min)}));
+
+    @include mq-until($breakpoint-min) {
+        font-size: $font-size-min;
+    }
+
+    @include mq-at-least($breakpoint-max) {
+        font-size: $font-size-max;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #HIDE
+//  -> Hide element from view
+//
+//******************************************************************************
+
+@mixin hide() {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    position: absolute;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #HIDE TEXT
+//  -> Hide text
+//
+//******************************************************************************
+
+@mixin hide-text() {
+    overflow: hidden;
+    text-indent: 150%;
+    white-space: nowrap;
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #LAST CHILD
+//  -> Last child of element
+//
+//******************************************************************************
+
+@mixin last-child() {
+    & > *:last-child,
+    & > *:last-child > *:last-child,
+    & > *:last-child > *:last-child > *:last-child {
+        @content;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MEDIA QUERY AT LEAST
+//
+//******************************************************************************
+
+@mixin mq-at-least($breakpoint-size, $viewport: width) {
+    @if type-of($breakpoint-size) == number {
+        @media screen and (min-#{$viewport}: em($breakpoint-size)) {
+            @content;
+        }
+    } @else {
+        $breakpoint-width: map-get($breakpoints, $breakpoint-size);
+
+        @media screen and (min-#{$viewport}: em($breakpoint-width)) {
+            @content;
+        }
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MEDIA QUERY BETWEEN
+//
+//******************************************************************************
+
+@mixin mq-between($breakpoint-start-size, $breakpoint-end-size, $viewport: width) {
+    $breakpoint-start-width: map-get($breakpoints, $breakpoint-start-size);
+    $breakpoint-end-width: map-get($breakpoints, $breakpoint-end-size);
+
+    @media screen and (min-#{$viewport}: em($breakpoint-start-width)) and (max-#{$viewport}: em($breakpoint-end-width - 1px)) {
+        @content;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MEDIA QUERY FLUID
+//
+//******************************************************************************
+
+@mixin mq-fluid($properties, $breakpoint-start-size, $breakpoint-end-size, $min-value, $max-value) {
+    & {
+        @each $property in $properties {
+            #{$property}: $min-value;
+        }
+
+        @media screen and (min-width: $breakpoint-start-size) {
+            @each $property in $properties {
+                #{$property}: calc-interpolation($breakpoint-start-size, $min-value, $breakpoint-end-size, $max-value); 
+            }
+        }
+
+        @media screen and (min-width: $breakpoint-end-size) {
+            @each $property in $properties {
+                #{$property}: $max-value;
+            }
+        }
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MEDIA QUERY GRADUAL
+//
+//******************************************************************************
+
+@mixin mq-gradual($property, $breakpoint-start-size, $start-value, $breakpoint-end-size, $end-value, $increment-width) {
+    $breakpoint-start-width: map-get($breakpoints, $breakpoint-start-size);
+    $breakpoint-end-width: map-get($breakpoints, $breakpoint-end-size);
+
+    // Define number of increments, $increments
+    $increments: ceil((strip-unit($breakpoint-end-width) - strip-unit($breakpoint-start-width)) / strip-unit($increment-width));
+
+    // Define the difference between values
+    $value-diff: (strip-unit($end-value) - strip-unit($start-value));
+
+    // The amount of difference, incrementally
+    $value-increment: $value-diff / $increments;
+
+    // Apply adjusted values
+    @for $i from 0 to $increments {
+        $increment-point: $breakpoint-start-width + $i * $increment-width;
+
+        @media (min-width: em($increment-point)){
+            #{$property}: $start-value + ($i * $value-increment);
+        }
+    }
+
+    @media (min-width: em($breakpoint-end-width)){
+        #{$property}: $end-value;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MEDIA QUERY UNTIL
+//
+//******************************************************************************
+
+@mixin mq-until($breakpoint-size, $viewport: width) {
+    @if type-of($breakpoint-size) == number {
+        @media screen and (max-#{$viewport}: em($breakpoint-size - 1)) {
+            @content;
+        }
+    } @else {
+        $breakpoint-width: map-get($breakpoints, $breakpoint-size);
+
+        @media screen and (max-#{$viewport}: em($breakpoint-width - 1)) {
+            @content;
+        }
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MEDIA QUERY RETINA
+//
+//******************************************************************************
+
+@mixin mq-retina() {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        @content;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #MODERNIZR
+//	-> Usage:
+//	   .selector {
+//	       @include yep($features) { }
+//         @include nope($features) { }
+//     }
+//
+//******************************************************************************
+
+@mixin modernizr($features, $supports) {
+    $everything-okay: true;
+    $prefix: if($supports, '', 'no-');
+    $selector: if($supports, '', (unquote('.no-js')));
+    $placeholder: if($supports, '%yep', '%nope');
+
+    @each $feature in $features {
+        @if type-of($feature) != string {
+            $everything-okay: false;
+            @warn '`#{$feature} is not a string for `modernizr`';
+        } @else {
+            $placeholder: $placeholder + '-' + $feature;
+            $new-selector: #{'.' + $prefix + $feature};
+            $selector: if($supports, $selector + $new-selector, append($selector, $new-selector, comma));
+        }
+    }
+
+    @if $everything-okay == true {
+
+        #{$placeholder} & {
+            @content;
+        }
+
+        @at-root #{$selector} {
+            @extend #{$placeholder};
+        }
+
+    }
+}
+
+@mixin yep($features) {
+    @include modernizr($features, $supports: true) {
+        @content;
+    }
+}
+
+@mixin nope($features) {
+    @include modernizr($features, $supports: false) {
+        @content;
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #PLACEHOLDER
+//  -> Input placeholder selectors
+//
+//******************************************************************************
+
+@mixin placeholder() {
+    ::-webkit-input-placeholder { @content; }
+    ::-moz-placeholder { @content; }
+    :-ms-input-placeholder { @content; }
+    input:-moz-placeholder { @content; }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #QUANTITY QUERY
+//  -> Quantity query
+//
+//******************************************************************************
+
+@mixin qq($arg) {
+    @if type-of($arg) == number {
+        &:nth-last-child(#{$arg}):first-child,
+        &:nth-last-child(#{$arg}):first-child ~ & {
+            @content;
+        }
+    } @else if str-slice($arg, 1, 1) == '<' {
+        @if str-slice($arg, 2, 2) == '=' {
+            $arg: number(str-slice($arg, 3));
+
+            &:nth-last-child(-n+#{$arg}):first-child,
+            &:nth-last-child(-n+#{$arg}):first-child ~ & {
+                @content;
+            }
+        } @else {
+            $arg: number(str-slice($arg, 2));
+
+            &:nth-last-child(-n+#{$arg - 1}):first-child,
+            &:nth-last-child(-n+#{$arg - 1}):first-child ~ & {
+                @content;
+            }
+        }
+    } @else if str-slice($arg, 1, 1) == '>' {
+        @if str-slice($arg, 2, 2) == '=' {
+            $arg: number(str-slice($arg, 3));
+
+            &:nth-last-child(n+#{$arg}),
+            &:nth-last-child(n+#{$arg}) ~ & {
+                @content;
+            }
+        } @else {
+            $arg: number(str-slice($arg, 2));
+
+            &:nth-last-child(n+#{$arg + 1}),
+            &:nth-last-child(n+#{$arg + 1}) ~ & {
+                @content;
+            }
+        }
+    }
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #REM FALLBACK
+//  -> px to rem with px fallback
+//     for properties
+//
+//******************************************************************************
+
+@mixin rem-fallback($property, $values, $important: false) {
+    $pxValues: ();
+    $remValues: ();
+
+    @if ($important == true) {
+        $important: !important;
+    } @else if ($important == false) {
+        $important: null;
+    } @else {
+        @error "`#{$important}` needs to be `true` or `false`.";
+    }
+
+    @each $value in $values {
+        $pxValues: append($pxValues, $value);
+        $remValues: append($remValues, rem($value));
+    }
+
+    #{$property}: $pxValues $important;
+    #{$property}: $remValues $important;
+}

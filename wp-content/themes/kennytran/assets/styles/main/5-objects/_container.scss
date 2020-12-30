@@ -1,0 +1,45 @@
+/*******************************************************************************
+//
+//
+//
+//  #CONTAINER
+//
+//
+//
+*******************************************************************************/
+
+.o-container {
+    @include clearfix();
+
+    width: 100%;
+    max-width: $grid-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+    position: relative;
+
+    @include mq-at-least(sm) {
+        padding-left: $grid-gutter-width;
+        padding-right: $grid-gutter-width;
+    }
+
+    @include mq-at-least(md) {
+        padding-left: $grid-gutter-width * 2;
+        padding-right: $grid-gutter-width * 2;
+    }
+}
+
+@if $grid-fluid == 'false' {
+    @media(min-width: 768px) {
+        .o-container { width: 738px; }
+    }
+
+    @media (min-width: 980px) {
+        .o-container { width: 950px; }
+    }
+
+    @media (min-width: 1200px) {
+        .o-container { width: 1170px; }
+    }
+}

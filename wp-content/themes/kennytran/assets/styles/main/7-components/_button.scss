@@ -1,0 +1,40 @@
+/*******************************************************************************
+//
+//
+//
+//  #BUTTON
+//
+//
+//
+*******************************************************************************/
+
+.c-button {
+    @include font-size(14px, 21px);
+
+    padding: em(12px);
+    display: inline-block;
+    color: var(--color-button-text);
+    font-family: $font-din;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: var(--color-button-background);
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+
+    &:active,
+    &:focus,
+    &:hover {
+        color: var(--color-button-text-active);
+        text-decoration: none;
+        background: var(--color-button-background-active);
+    }
+
+    &.disabled,
+    &[disabled] {
+        cursor: default;
+        opacity: 0.5;
+    }
+}

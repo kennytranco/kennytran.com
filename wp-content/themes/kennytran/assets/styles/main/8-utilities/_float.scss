@@ -1,0 +1,26 @@
+/*******************************************************************************
+//
+//
+//
+//  #FLOAT
+//
+//
+//
+*******************************************************************************/
+
+$float: true;
+$float-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+@if $float {
+    .u-fl-left  { float: left!important; }
+    .u-fl-right { float: right!important; }
+    .u-fl-none  { float: none!important; }
+
+    @each $float-breakpoint in $float-breakpoints {
+        @include mq-at-least($float-breakpoint) {
+            .u-fl-#{$float-breakpoint}-left  { float: left!important; }
+            .u-fl-#{$float-breakpoint}-right { float: right!important; }
+            .u-fl-#{$float-breakpoint}-none  { float: none!important; }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+//******************************************************************************
+//
+//
+//
+//  #SPACERS
+//
+//
+//
+//******************************************************************************
+
+$spacers: (
+    none:  0,
+    xxxxs: 0.125 * $global-spacing-base,
+    xxxs:  0.25 * $global-spacing-base,
+    xxs:   0.375 * $global-spacing-base,
+    xs:    0.5 * $global-spacing-base,
+    sm:    0.75 * $global-spacing-base,
+    base:  1 * $global-spacing-base,
+    md:    1.25 * $global-spacing-base,
+    lg:    2 * $global-spacing-base,
+    xl:    3.25 * $global-spacing-base,
+    xxl:   5.25 * $global-spacing-base,
+    xxxl:  8.5 * $global-spacing-base,
+    xxxxl: 13.75 * $global-spacing-base,
+);

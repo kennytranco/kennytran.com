@@ -1,0 +1,28 @@
+/*******************************************************************************
+//
+//
+//
+//  #POSITION
+//
+//
+//
+*******************************************************************************/
+
+$position: true;
+$position-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+@if $position {
+    .u-pos-absolute { position: absolute!important; }
+    .u-pos-fixed    { position: fixed!important; }
+    .u-pos-relative { position: relative!important; }
+    .u-pos-static   { position: static!important; }
+
+    @each $position-breakpoint in $position-breakpoints {
+        @include mq-at-least($position-breakpoint) {
+        	.u-pos-#{$position-breakpoint}-absolute { position: absolute!important; }
+            .u-pos-#{$position-breakpoint}-fixed    { position: fixed!important; }
+            .u-pos-#{$position-breakpoint}-relative { position: relative!important; }
+            .u-pos-#{$position-breakpoint}-static   { position: static!important; }
+        }
+    }
+}

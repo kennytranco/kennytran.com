@@ -1,0 +1,66 @@
+/*******************************************************************************
+//
+//
+//
+//  #RATIO
+//
+//
+//
+*******************************************************************************/
+
+$ratios: (
+    '16by9': (16:9)
+);
+
+.o-ratio,
+%o-ratio {
+    display: block;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 100%;
+    }
+
+    .o-ratio__content,
+    .o-ratio > embed,
+    .o-ratio > iframe,
+    .o-ratio > object {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+
+    /***************************************************************************
+    //
+    //  VARIANTS
+    //
+    ***************************************************************************/
+
+    &.-contain-image {
+        & > .o-ratio__image {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            margin: auto;
+        }
+    }
+
+    @each $ratio-name, $ratio-value in $ratios {
+        @each $antecedent, $consequent in $ratio-value {
+            &.-ratio-#{$ratio-name} {
+                &::before {
+                    padding-bottom: ($consequent / $antecedent) * 100%;
+                }
+            }
+        }
+    }
+}

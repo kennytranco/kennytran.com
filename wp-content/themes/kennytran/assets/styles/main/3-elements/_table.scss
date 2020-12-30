@@ -1,0 +1,33 @@
+/*******************************************************************************
+//
+//
+//
+//  #TABLE
+//
+//
+//
+*******************************************************************************/
+
+table {
+    margin: 0 0 map-get($spacers, md);
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    overflow-x: auto;
+}
+
+th,
+td {
+    padding: em(8px);
+    text-align: left;
+    border-top: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+caption {
+    padding: em(8px);
+    border-bottom: 0;
+}

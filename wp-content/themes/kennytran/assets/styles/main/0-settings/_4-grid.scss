@@ -1,0 +1,27 @@
+//******************************************************************************
+//
+//
+//
+//  #GRID
+//
+//
+//
+//******************************************************************************
+
+$grid-fluid: true;
+$grid-max-width: 1920px;
+$grid-columns: 12;
+$grid-column-width: 70px;
+$grid-gutter-width: 30px;
+
+$grid-column: true;
+$grid-column-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+$grid-offset: true;
+$grid-offset-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+$grid-pull: false;
+$grid-pull-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+$grid-push: false;
+$grid-push-breakpoints: (xs, sm, md, lg, xl, xxl);

@@ -1,0 +1,64 @@
+/*******************************************************************************
+//
+//
+//
+//  #POST EXCERPT
+//
+//
+//
+*******************************************************************************/
+
+.c-post-excerpt {
+    max-width: 580px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+    .c-post-excerpt__date {
+        display: block;
+        color: var(--color-accent);
+        margin: 0 0 map-get($spacers, sm);
+
+        @include mq-at-least(md) {
+            margin-bottom: map-get($spacers, md);
+        }
+    }
+
+    .c-post-excerpt__date {
+        $post-date-sizes: (
+            md: map-get($font-sizes, md),
+        );
+
+        @extend %u-font-heebo;
+
+        display: block;
+        margin: 0 0 map-get($spacers, sm);
+        color: var(--color-tertiary);
+        font-size: map-get($font-sizes, xs);
+        font-weight: 700;
+
+        @each $breakpoint, $fontSize in $post-date-sizes {
+            @include mq-at-least($breakpoint) {
+                @include font-size($fontSize, false);
+            }
+        }
+    }
+
+    .c-post-excerpt__title {
+        $post-excerpt-title-sizes: (
+            md: map-get($font-sizes, xxxl),
+            lg: map-get($font-sizes, xxxxl),
+        );
+
+        @extend %u-font-din;
+
+        font-size: map-get($font-sizes, xl);
+        margin-top: 0;
+
+        @each $breakpoint, $fontSize in $post-excerpt-title-sizes {
+            @include mq-at-least($breakpoint) {
+                @include font-size($fontSize, false);
+            }
+        }
+    }
+}

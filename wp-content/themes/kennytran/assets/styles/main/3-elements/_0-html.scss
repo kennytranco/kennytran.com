@@ -1,0 +1,56 @@
+/*******************************************************************************
+//
+//
+//
+//  #HTML
+//
+//
+//
+*******************************************************************************/
+
+:root {
+    @each $colorName, $color in $colors {
+        --color-#{$colorName}: #{$color};
+    }
+
+    @each $colorName, $color in $colors-theme-default {
+        --color-#{$colorName}: #{$color};
+    }
+}
+
+[data-theme="light"] {
+    @each $colorName, $color in $colors-theme-light {
+        --color-#{$colorName}: #{$color};
+    }
+}
+
+* {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    min-height: 100%;
+    font-size: 80%;
+    line-height: $global-line-height-ratio-base;
+    scroll-behavior: smooth;
+
+    @include mq-at-least(md) {
+        font-size: 90%;
+    }
+
+    @include mq-at-least(lg) {
+        font-size: 100%;
+    }
+
+    &.is-disable-animations * {
+        transition: none!important;
+    }
+
+    &.is-disable-scroll {
+        height: 100vh;
+        overflow: hidden;
+    }
+}

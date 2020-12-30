@@ -1,0 +1,100 @@
+//******************************************************************************
+//
+//
+//
+//  #FONTS
+//
+//  [1] https://www.modularscale.com/?1,1140,12&em&1.3
+//
+//
+//******************************************************************************
+
+@import url('//use.typekit.net/gvi5snx.css');
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('#{map-get($global-paths, fonts)}/Heebo-Light.woff2') format('woff2'),
+         url('#{map-get($global-paths, fonts)}/Heebo-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('#{map-get($global-paths, fonts)}/Heebo-Bold.woff2') format('woff2'),
+         url('#{map-get($global-paths, fonts)}/Heebo-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('#{map-get($global-paths, fonts)}/Heebo-Regular.woff2') format('woff2'),
+         url('#{map-get($global-paths, fonts)}/Heebo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('#{map-get($global-paths, fonts)}/Inconsolata-Light.woff2') format('woff2'),
+         url('#{map-get($global-paths, fonts)}/Inconsolata-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('#{map-get($global-paths, fonts)}/Inconsolata-Bold.woff2') format('woff2'),
+         url('#{map-get($global-paths, fonts)}/Inconsolata-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('#{map-get($global-paths, fonts)}/Inconsolata-Regular.woff2') format('woff2'),
+         url('#{map-get($global-paths, fonts)}/Inconsolata-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+$font-din: 'din-condensed', sans-serif;
+$font-heebo: 'heebo', sans-serif;
+$font-inconsolata: 'Inconsolata', sans-serif;
+
+$font-weight-light: 300!default;
+$font-weight-normal: 400!default;
+$font-weight-bold: 700!default;
+
+// [1]
+$font-sizes: (
+    xxxxs: 0.67 * $global-font-size-base,
+    xxxs:  0.735 * $global-font-size-base,
+    xxs:   0.769 * $global-font-size-base,
+    xs:    0.87 * $global-font-size-base,
+    sm:    0.956 * $global-font-size-base,
+    base:  1 * $global-font-size-base,
+    md:    1.243 * $global-font-size-base,
+    lg:    1.471 * $global-font-size-base,
+    xl:    1.69 * $global-font-size-base,
+    xxl:   2.1 * $global-font-size-base,
+    xxxl:  2.486 * $global-font-size-base,
+    xxxxl: 2.856 * $global-font-size-base
+);
+
+// [1]
+$font-heading-sizes: (
+    h1: 2.856 * $global-font-size-base,
+    h2: 2.486 * $global-font-size-base,
+    h3: 2.197 * $global-font-size-base,
+    h4: 1.69 * $global-font-size-base,
+    h5: 1.3 * $global-font-size-base,
+    h6: 1 * $global-font-size-base,
+);

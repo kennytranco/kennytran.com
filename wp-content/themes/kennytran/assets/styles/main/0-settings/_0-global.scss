@@ -1,0 +1,47 @@
+//******************************************************************************
+//
+//
+//
+//  #GLOBAL
+//  -> Global variables
+//
+//
+//
+//******************************************************************************
+
+//******************************************************************************
+//  #URL
+//******************************************************************************
+
+$global-site: (
+    url: '',
+    theme: '/wp-content/themes/kennytran'
+);
+
+
+
+
+
+//******************************************************************************
+//  #PATHS
+//******************************************************************************
+
+$global-paths: (
+    assets: #{map-get($global-site, theme)}/assets,
+    fonts: #{map-get($global-site, theme)}/assets/fonts,
+    images: #{map-get($global-site, theme)}/assets/images,
+    svgs: #{map-get($global-site, theme)}/assets/svgs
+);
+
+
+
+
+
+//******************************************************************************
+//  #VARIABLES
+//******************************************************************************
+
+$global-font-size-base: 20px;
+$global-line-height-base: 30px;
+$global-line-height-ratio-base: $global-line-height-base / $global-font-size-base;
+$global-spacing-base: $global-line-height-base;

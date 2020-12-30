@@ -1,0 +1,91 @@
+/*******************************************************************************
+//
+//
+//
+//  #POST
+//
+//
+//
+*******************************************************************************/
+
+.c-post {
+    max-width: 800px;
+    
+    @include mq-at-least(lg) {
+        margin-left: 16%;
+    }
+
+    .c-post__date {
+        $post-date-sizes: (
+            md: map-get($font-sizes, md),
+        );
+
+        @extend %u-font-heebo;
+
+        display: block;
+        margin: 0 0 map-get($spacers, md);
+        color: var(--color-tertiary);
+        font-size: map-get($font-sizes, sm);
+        font-weight: 700;
+
+        @each $breakpoint, $fontSize in $post-date-sizes {
+            @include mq-at-least($breakpoint) {
+                @include font-size($fontSize, false);
+            }
+        }
+    }
+
+
+
+
+
+    /***************************************************************************
+    //
+    //  #BLOCKS
+    //
+    ***************************************************************************/
+
+    /***************************************************************************
+    //  #CODE
+    ***************************************************************************/
+
+    .wp-block-code {
+        @include mq-at-least(xl) {
+            margin-right: -200px;
+        }
+    }
+
+
+    /***************************************************************************
+    //  #COLUMNS
+    ***************************************************************************/
+
+    .wp-block-columns {
+        &.is-image-grid {
+            @include mq-at-least(xl) {
+                margin-right: -200px;
+            }
+        }
+
+        .wp-block-column {
+            @include mq-at-least(600px) {
+                &:nth-child(2n) { margin-left: 30px; }
+            }
+        }
+    }
+
+
+    /***************************************************************************
+    //  #IMAGE
+    ***************************************************************************/
+
+    .wp-block-image {
+        margin: 0 0 map-get($spacers, md);
+
+        &.size-extra_large {
+            @include mq-at-least(xl) {
+                margin-right: -200px;
+            }
+        }
+    }
+}

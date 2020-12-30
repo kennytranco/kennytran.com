@@ -1,0 +1,56 @@
+//******************************************************************************
+//
+//
+//
+//  #COLORS
+//
+//
+//
+//******************************************************************************
+
+$colors: (
+    black: #080808,
+    grey: #939393,
+    greyLight: #a9a9a9,
+    greyLighter: #f1f1f1,
+    slate: #47474d,
+    white: #fff,
+);
+
+$colors-theme-default: (
+    primary: map-get($colors, white),
+    secondary: map-get($colors, black),
+    tertiary: map-get($colors, grey),
+    accent: gold,
+    background: map-get($colors, black),
+    border: map-get($colors, grey),
+    border-focus: map-get($colors, black),
+    button-background: gold,
+    button-text: map-get($colors, black),
+    button-background-active: gold,
+    button-text-active: map-get($colors, black),
+    input-background: map-get($colors, white),
+    input-placeholder: map-get($colors, grey),
+    jumbotron-background: '8, 8, 8', 
+    text: map-get($colors, white),
+    text-link: gold,
+);
+
+$colors-theme-light: (
+    primary: map-get($colors, black),
+    secondary: map-get($colors, white),
+    tertiary: map-get($colors, slate),
+    accent: blue,
+    background: map-get($colors, greyLighter),
+    border: map-get($colors, slate),
+    border-focus: map-get($colors, black),
+    button-background: gold,
+    button-text: map-get($colors, black),
+    button-background-active: gold,
+    button-text-active: map-get($colors, black),
+    input-background: map-get($colors, white),
+    input-placeholder: map-get($colors, slate),
+    jumbotron-background: '241, 241, 241',
+    text: map-get($colors, black),
+    text-link: blue,
+);

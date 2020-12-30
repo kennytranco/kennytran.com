@@ -1,0 +1,106 @@
+/*******************************************************************************
+//
+//
+//
+//  #MARGIN
+//
+//
+//
+*******************************************************************************/
+
+$margin: true;
+$margin-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+@if $margin {
+    .u-m-none { margin: 0!important; }
+
+    .u-mt-none,
+    .u-my-none { margin-top: 0!important; }
+
+    .u-mr-none,
+    .u-mx-none { margin-right: 0!important; }
+
+    .u-mb-none,
+    .u-my-none { margin-bottom: 0!important; }
+
+    .u-ml-none,
+    .u-mx-none { margin-left: 0!important; }
+
+    @each $size, $length in $spacers {
+        .u-m-#{$size} { margin: $length!important; }
+        
+        .u-mt-#{$size},
+        .u-my-#{$size} { margin-top: $length!important; }
+
+        .u-mr-#{$size},
+        .u-mx-#{$size} { margin-right: $length!important; }
+
+        .u-mb-#{$size},
+        .u-my-#{$size} { margin-bottom: $length!important; }
+
+        .u-ml-#{$size},
+        .u-mx-#{$size} { margin-left: $length!important; }
+
+        .u-m-auto { margin: auto!important; }
+
+        .u-mt-auto,
+        .u-my-auto { margin-top: auto!important; }
+
+        .u-mr-auto,
+        .u-mx-auto { margin-right: auto!important; }
+        
+        .u-mb-auto,
+        .u-my-auto { margin-bottom: auto!important; }
+
+        .u-ml-auto,
+        .u-mx-auto { margin-left: auto!important; }
+    }
+
+    @each $margin-breakpoint in $margin-breakpoints {
+        @include mq-at-least($margin-breakpoint) {
+            @each $size, $length in $spacers {
+                .u-m-#{$margin-breakpoint}-#{$size} { margin: $length!important; }
+                
+                .u-mt-#{$margin-breakpoint}-#{$size},
+                .u-my-#{$margin-breakpoint}-#{$size} { margin-top: $length!important; }
+
+                .u-mr-#{$margin-breakpoint}-#{$size},
+                .u-mx-#{$margin-breakpoint}-#{$size} { margin-right: $length!important; }
+
+                .u-mb-#{$margin-breakpoint}-#{$size},
+                .u-my-#{$margin-breakpoint}-#{$size} { margin-bottom: $length!important; }
+
+                .u-ml-#{$margin-breakpoint}-#{$size},
+                .u-mx-#{$margin-breakpoint}-#{$size} { margin-left: $length!important; }
+            }
+
+            .u-m-#{$margin-breakpoint}-none { margin: 0!important; }
+
+            .u-mt-#{$margin-breakpoint}-none,
+            .u-my-#{$margin-breakpoint}-none { margin-top: 0!important; }
+
+            .u-mr-#{$margin-breakpoint}-none,
+            .u-mx-#{$margin-breakpoint}-none { margin-right: 0!important; }
+
+            .u-mb-#{$margin-breakpoint}-none,
+            .u-my-#{$margin-breakpoint}-none { margin-bottom: 0!important; }
+
+            .u-ml-#{$margin-breakpoint}-none,
+            .u-mx-#{$margin-breakpoint}-none { margin-left: 0!important; }
+
+            .u-m-#{$margin-breakpoint}-auto { margin: auto!important; }
+
+            .u-mt-#{$margin-breakpoint}-auto,
+            .u-my-#{$margin-breakpoint}-auto { margin-top: auto!important; }
+
+            .u-mr-#{$margin-breakpoint}-auto,
+            .u-mx-#{$margin-breakpoint}-auto { margin-right: auto!important; }
+            
+            .u-mb-#{$margin-breakpoint}-auto,
+            .u-my-#{$margin-breakpoint}-auto { margin-bottom: auto!important; }
+
+            .u-ml-#{$margin-breakpoint}-auto,
+            .u-mx-#{$margin-breakpoint}-auto { margin-left: auto!important; }
+        }
+    }
+}

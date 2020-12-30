@@ -1,0 +1,133 @@
+/*******************************************************************************
+//
+//
+//
+//  #TYPOGRAPHY
+//
+//  [1] https://hugogiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/
+//
+//
+//
+*******************************************************************************/
+
+/*******************************************************************************
+//
+//  #HEADINGS
+//
+*******************************************************************************/
+
+.h1, %h1, h1,
+.h2, %h2, h2,
+.h3, %h3, h3,
+.h4, %h4, h4,
+.h5, %h5, h5,
+.h6, %h6, h6 {
+    margin: map-get($spacers, xl) 0 map-get($spacers, md);
+    font-family: $font-heebo;
+    line-height: calc(2px + 2ex + 2px); // [1]
+
+    a {
+        color: inherit;
+        font-weight: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-text-link);
+        }
+    }
+}
+
+@each $heading, $size in $font-heading-sizes {
+    .#{$heading}, %#{$heading}, #{$heading} { @include font-size($size, false); }
+}
+
+
+
+
+
+/*******************************************************************************
+//
+//  #PARAGRAPHS
+//
+*******************************************************************************/
+
+p { margin: 0 0 map-get($spacers, md); }
+
+
+
+
+
+/*******************************************************************************
+//
+//  #ANCHORS
+//
+*******************************************************************************/
+
+a {
+    color: var(--color-text-link);
+    outline: 0;
+    transition: color .5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+    &:focus,
+    &:hover { color: var(--color-text); }
+
+    &:focus {
+        outline: 1px dotted var(--color-accent);
+        outline-offset: 4px;
+    }
+}
+
+
+
+
+
+/*******************************************************************************
+//
+//  #FINE PRINTS
+//
+*******************************************************************************/
+
+abbr[title],
+abbr[data-original-title] {
+    border-bottom: 1px dotted var(--color-border);
+    cursor: help;
+}
+
+small { font-size: 80%; }
+
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+b,
+strong { font-weight: 700; }
+
+em { font-style: italic; }
+
+
+
+
+
+/*******************************************************************************
+//
+//  #BLOCKQUOTE
+//
+*******************************************************************************/
+
+blockquote {
+    padding: 0.5em 1em;
+    margin: 0 0 map-get($spacers, md);
+    border-left: .2em solid var(--color-border);
+    white-space: normal;
+
+    blockquote {
+        margin-bottom: 0;
+    }
+}

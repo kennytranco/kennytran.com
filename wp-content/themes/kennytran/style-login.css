@@ -1,0 +1,101 @@
+/*******************************************************************************
+//
+//
+//
+//  #LOGIN
+//  -> Styles for login
+//
+//
+//
+*******************************************************************************/
+/*
+.login h1 a {
+    width: 320px;
+    height: 59px;
+    background-image: url('logo.png');
+    background-size: auto;
+
+}
+
+    @media(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .login h1 a {
+            background-image: url('logo@2x.png');
+            background-size: 320px 55px;
+        }
+    }
+*/
+
+.login #nav {
+    padding: 0;
+    margin-top: 24px;
+}
+
+.login #backtoblog { display: none; }
+
+.login #login_error { border-color: #d9534f; }
+
+.login .message { border-color: #000; }
+
+.login #nav { float: right; }
+
+    .login h1 a:hover,
+    .login #nav a:hover {
+        color: #000;
+    }
+
+.wp-core-ui .button-primary {
+    background: #000;
+    border-color: #000;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-text-shadow: none;
+    -moz-text-shadow: none;
+    text-shadow: none;
+}
+
+    .wp-core-ui .button-primary:active,
+    .wp-core-ui .button-primary:focus,
+    .wp-core-ui .button-primary:hover {
+        vertical-align: top;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    .wp-core-ui .button-primary:hover {
+        background: #333;
+        border-color: #333;
+    }
+
+    .wp-core-ui .button-primary:active,
+    .wp-core-ui .button-primary:focus {
+        background: #383838;
+        border-color: #383838;
+    }
+
+input[type=checkbox]:focus,
+input[type=color]:focus,
+input[type=date]:focus,
+input[type=datetime-local]:focus,
+input[type=datetime]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=radio]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+select:focus,
+textarea:focus {
+    border-color: #000;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}

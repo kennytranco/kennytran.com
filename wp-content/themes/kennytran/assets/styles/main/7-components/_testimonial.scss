@@ -1,0 +1,25 @@
+/*******************************************************************************
+//
+//
+//
+//  #TESTIMONIAL
+//
+//
+//
+*******************************************************************************/
+
+.c-testimonial {
+    @include font-size(map-get($font-sizes, md), auto);
+
+    max-width: 560px;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border: 0;
+    text-align: center;
+
+    .c-testimonial__image {
+        width: 160px;
+        margin: 0 0 map-get($spacers, lg);
+    }
+}

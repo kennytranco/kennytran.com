@@ -1,0 +1,27 @@
+/*******************************************************************************
+//
+//
+//
+//  #CONTAINER
+//
+//
+//
+*******************************************************************************/
+
+.c-container {
+    html.js & {
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+
+        &.-is-enter,
+        &.-is-leave {
+            position: relative;
+        }
+
+        &.-is-enter { z-index: 1; }
+        &.-is-leave { z-index: 2; }
+    }
+}

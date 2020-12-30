@@ -1,0 +1,72 @@
+/*******************************************************************************
+//
+//
+//
+//  #TEXT
+//
+//
+//
+*******************************************************************************/
+
+$text: true;
+$text-breakpoints: (xs, sm, md, lg, xl, xxl);
+
+@if $text {
+    .u-font-light { font-weight: 300!important; }
+    .u-font-normal { font-weight: 400!important; }
+    .u-font-bold { font-weight: 700!important; }
+    .u-font-italic { font-style: italic!important; }
+
+    .u-text-justify { text-align: justify!important; }
+    .u-text-nowrap { white-space: nowrap!important; }
+
+    .u-text-capitalize { text-transform: capitalize!important; }
+    .u-text-lowercase { text-transform: lowercase!important; }
+    .u-text-uppercase { text-transform: uppercase!important; }
+
+    .u-text-center { text-align: center!important; }
+    .u-text-left { text-align: left!important; }
+    .u-text-right { text-align: right!important; }
+
+    .u-text-hide { @include hide-text(); }
+
+    .u-font-din,
+    %u-font-din {
+        font-family: $font-din;
+        font-weight: normal;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+
+    .u-font-heebo,
+    %u-font-heebo {
+        font-family: $font-heebo;
+    }
+
+
+    @each $fontSizeName, $fontSize in $font-sizes {
+        .u-font-#{$fontSizeName},
+        %u-font-#{$fontSizeName} {
+            @include font-size($fontSize, false);
+
+            line-height: $global-line-height-ratio-base!important;
+        }
+    }
+
+    @each $text-breakpoint in $text-breakpoints {
+        @include mq-at-least($text-breakpoint) {
+            .u-text-#{$text-breakpoint}-center { text-align: center!important; }
+            .u-text-#{$text-breakpoint}-left { text-align: left!important; }
+            .u-text-#{$text-breakpoint}-right { text-align: right!important; }
+            
+            @each $fontSizeName, $fontSize in $font-sizes {
+                .u-font-#{$text-breakpoint}-#{$fontSizeName},
+                %u-font-#{$text-breakpoint}-#{$fontSizeName} {
+                    @include font-size($fontSize, false);
+
+                    line-height: $global-line-height-ratio-base!important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+//******************************************************************************
+//
+//
+//
+//  #FUNCTIONS
+//  -> Global functions
+//
+//  CONTENTS
+//    #CALC INTERPOLATION
+//    #EM
+//    #REM
+//    #NUMBER
+//    #STRIP UNIT
+//
+//
+//
+//******************************************************************************
+
+//******************************************************************************
+//
+//  #CALC INTERPOLATION
+//
+//******************************************************************************
+
+@function calc-interpolation($breakpoint-start-size, $min-value, $breakpoint-end-size, $max-value) {
+    $a: ($max-value - $min-value) / ($breakpoint-end-size - $breakpoint-start-size);
+    $b: $min-value - $a * $breakpoint-start-size; 
+
+    $sign: "+";
+
+    @if($b < 0) {
+        $sign: "-";
+        $b: abs($b);
+    }
+
+    @return calc(#{$a*100}vw #{$sign} #{$b});
+}
+
+//******************************************************************************
+//
+//  #EM
+//  -> Converts px value into em
+//
+//******************************************************************************
+
+@function em($px, $context: 16px) {
+    @if $px == 0 { @return 0 }
+    @return strip-unit($px) / strip-unit($context) + em;
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #REM
+//  -> Converts px value into rem
+//
+//******************************************************************************
+
+@function rem($px) {
+    @if $px == 0 { @return 0 }
+    @return strip-unit($px) / strip-unit(16px) + rem;
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #NUMBER
+//  ->
+//
+//******************************************************************************
+
+@function number($string) {
+    $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+    $numbers:  0   1   2   3   4   5   6   7   8   9;
+
+    $result: 0;
+
+    @for $i from 1 through str-length($string) {
+        $character: str-slice($string, $i, $i);
+        $index: index($strings, $character);
+
+        @if not $index {
+            @warn "Unknown character '#{$character}'.";
+            @return false;
+        }
+
+        $number: nth($numbers, $index);
+        $result: $result * 10 + $number;
+    }
+
+    @return $result;
+}
+
+
+
+
+
+//******************************************************************************
+//
+//  #STRIP UNIT
+//  -> Strips unit from value
+//     e.g. 16px = 16
+//
+//******************************************************************************
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}

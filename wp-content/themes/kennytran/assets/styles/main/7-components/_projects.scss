@@ -1,0 +1,100 @@
+/*******************************************************************************
+//
+//
+//
+//  #PROJECTS
+//
+//
+//
+*******************************************************************************/
+
+.c-projects {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    .c-projects__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding-left: $grid-gutter-width / 2;
+        padding-right: $grid-gutter-width / 2;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .c-projects__image {
+        max-width: 100%;
+
+        @include mq-at-least(md) {
+            max-width: 1000px;
+            max-height: 50vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .c-projects__link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .c-projects__text {
+        width: 100%;
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        transition: all 0.75s ease;
+
+        @include last-child() { margin-bottom: 0; }
+
+        .c-projects__text-content,
+        .c-projects__text-heading {
+            @include font-size(map-get($font-sizes, sm), false);
+
+            color: var(--color-black);
+        }
+
+        .c-projects__text-heading {
+            @extend %u-font-din;
+
+            margin-bottom: 8px;
+        }
+    }
+
+
+    &.-columns {
+        @include mq-at-least(md) {
+            display: flex;
+        }
+
+        .c-projects__item {
+            @include mq-at-least(md) {
+                width: (100 / 3) * 1%;
+                transition: width .75s ease .5s;
+            }
+
+            &:hover {
+                @include mq-at-least(md) {
+                    width: 70%;
+                }
+            }
+        }
+
+        .c-projects__text {
+            @include mq-at-least(md) {
+                left: 50px;
+                transform: translate(0, 0);
+                text-align: left;
+            }
+        }
+    }
+}

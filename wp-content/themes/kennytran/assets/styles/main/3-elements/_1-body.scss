@@ -1,0 +1,20 @@
+/*******************************************************************************
+//
+//
+//
+//  #BODY
+//
+//
+//
+*******************************************************************************/
+
+body {
+    @include font-size($global-font-size-base, $global-line-height-base);
+
+    min-height: 100%;
+    color: var(--color-text);
+    font-family: $font-inconsolata;
+    background-color: var(--color-background);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

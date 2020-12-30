@@ -1,0 +1,21 @@
+/*******************************************************************************
+//
+//
+//
+//  #COLOR
+//
+//
+//
+*******************************************************************************/
+
+$color: true;
+
+@if $color {
+    @each $colorName, $color in $colors {
+        .u-c-#{$colorName} { color: var(--color-#{$colorName})!important; }
+    }
+
+    @each $colorName, $color in $colors-theme-default {
+        .u-c-#{$colorName} { color: var(--color-#{$colorName})!important; }
+    }
+}

@@ -1,0 +1,42 @@
+/*******************************************************************************
+//
+//
+//
+//  #MEDIA QUERIES
+//  -> Styles for ../../../scripts/main/utilities/media-queries.js
+//
+//
+//
+*******************************************************************************/
+
+.js-media-query {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    position: absolute;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    z-index: 0;
+}
+
+@include mq-at-least(sm) {
+    .js-media-query { z-index: 1; }
+}
+
+@include mq-at-least(md) {
+    .js-media-query { z-index: 2; }
+}
+
+@include mq-at-least(lg) {
+    .js-media-query { z-index: 3; }
+}
+
+@include mq-at-least(xl) {
+    .js-media-query { z-index: 4; }
+}
+
+@include mq-at-least(xxl) {
+    .js-media-query { z-index: 5; }
+}

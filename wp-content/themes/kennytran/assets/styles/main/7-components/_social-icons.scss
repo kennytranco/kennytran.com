@@ -1,0 +1,58 @@
+/*******************************************************************************
+//
+//
+//
+//  #SOCIAL ICONS
+//
+//
+//
+*******************************************************************************/
+
+.c-social-icons {
+    display: flex;
+    margin: 0 auto;
+    list-style: none;
+
+    @include mq-until(md) {
+        justify-content: center;
+    }
+
+    @include mq-at-least(md) {
+        margin-right: 0;
+    }
+
+    button {
+        display: block;
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+    }
+
+    li {
+        &:not(:last-child) { margin: 0 map-get($spacers, xs) 0 0; }
+    }
+
+    a,
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: em(40px);
+        height: em(40px);
+
+        &:active,
+        &:focus,
+        &:hover  {
+            svg {
+                fill: var(--color-accent);
+            }
+        }
+    }
+
+    svg {
+        height: rem(24px);
+        fill: var(--color-primary);
+        transition: fill .5s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    }
+}
