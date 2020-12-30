@@ -13,6 +13,7 @@ Thumbs.db
 ## Ignore everything in the root except the 'wp-content' directory.
 /*
 !.gitignore
+!favicons
 !README.md
 !wordpress.txt
 !wp-content/
