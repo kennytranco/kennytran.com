@@ -260,6 +260,9 @@ remove_action('wp_head', 'wp_oembed_add_discovery_links');
 // Remove oEmbed JavaScript from the front-end and back-end.
 remove_action('wp_head', 'wp_oembed_add_host_js');
 
+// Remove Comments Feed
+add_filter('feed_links_show_comments_feed', '__return_false');
+
 
 // Remove unnecessary self-closing tags
 function kennytranco_remove_self_closing_tags($input) {
