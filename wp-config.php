@@ -1,4 +1,8 @@
 <?php
+
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
 /**
  * The base configuration settings for WordPress
  * -> MySQL settings, Secret keys and WP_DEBUG are stored in environment specific
@@ -106,7 +110,7 @@ switch(WP_ENV) {
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
