@@ -5,7 +5,7 @@
                             <div class="o-grid">
                                 <div class="o-grid__row">
                                     <div class="o-grid__column u-d-md-flex u-items-md-center u-text-center u-text-md-left">
-                                        <p class="u-mb-xs u-mb-md-none u-font-xxxxs">Copyright &copy; 2020 Kenny Tran Co Ltd. Registered in England and Wales. Company number 12716945.</p>
+                                        <p class="u-mb-xs u-mb-md-none u-font-xxxxs">Copyright &copy; <?php echo date('Y'); ?> Kenny Tran Co Ltd. Registered in England and Wales. Company number 12716945.</p>
                                         <?php get_template_part('template-parts/social-icons'); ?>
                                     </div>
                                 </div>
