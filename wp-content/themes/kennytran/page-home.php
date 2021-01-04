@@ -97,8 +97,8 @@
             <a
                 aria-label="Link to 58 Gin website"
                 class="c-projects__link"
-                href="https://www.58gin.com"
-                onClick="gtag('event', 'click', { 'event_category': 'link', 'event_label': 'https://www.58gin.com' });"
+                href="https://58gin.com"
+                onClick="gtag('event', 'click', { 'event_category': 'link', 'event_label': 'https://58gin.com' });"
                 rel="noopener noreferrer"
                 target="_blank"
             ></a>
