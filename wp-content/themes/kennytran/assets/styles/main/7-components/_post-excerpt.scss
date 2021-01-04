@@ -44,6 +44,18 @@
         }
     }
 
+    .c-post-excerpt__tags {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            &:not(:last-child) { margin-right: map-get($spacers, xxs); }
+        }
+    }
+
     .c-post-excerpt__title {
         $post-excerpt-title-sizes: (
             md: map-get($font-sizes, xxxl),
