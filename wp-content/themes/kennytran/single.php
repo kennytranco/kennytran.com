@@ -6,7 +6,7 @@
                 <div class="o-grid__column">
                     <?php while(have_posts()) : the_post(); ?>
                         <article class="c-post">
-                            <time class="c-post__date" datetime="<?php echo get_the_date('Y/m/d'); ?>"><?php echo get_the_date('F jS, Y'); ?></time>
+                            <time class="c-post__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('F jS, Y'); ?></time>
                             <?php the_content(); ?>
                         </article>
                     <?php endwhile; ?>
