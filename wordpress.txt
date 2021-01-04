@@ -2,5 +2,6 @@
 WordPress 5.6.0
 
 === Plugins ===
+code-syntax-block
 w3-total-cache
 wordpress-seo
