@@ -102,6 +102,12 @@
                 elseif(is_singular()) :
                     $jumbotron_heading = '01 - Post Title';
                     $jumbotron_statement = '<div>' . get_the_title() . '</div>';
+                elseif(is_category()) :
+                    $jumbotron_heading = '01 - Archive Title';
+                    $jumbotron_statement = '<div>Categories</div>';
+                elseif(is_tag()) :
+                    $jumbotron_heading = '01 - Archive Title';
+                    $jumbotron_statement = '<div>Tags</div>';
                 endif;
             ?>
             <section class="c-jumbotron">
