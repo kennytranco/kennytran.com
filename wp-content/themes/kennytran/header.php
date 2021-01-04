@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
         <title><?php wp_title(); ?></title>
-        <meta name="description" content="">
 
         <!-- Icons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
