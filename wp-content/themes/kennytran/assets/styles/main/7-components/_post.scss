@@ -20,7 +20,7 @@
             md: map-get($font-sizes, md),
         );
 
-        @extend %u-font-heebo;
+        @extend %u-text-heebo;
 
         display: block;
         margin: 0 0 map-get($spacers, md);

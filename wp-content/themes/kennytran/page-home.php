@@ -11,10 +11,10 @@
                             width="240"
                         />
                     </p>
-                    <p class="u-font-heebo u-font-xl u-font-md-xxxl u-font-xl-xxxxl u-font-bold"><?php _e('I\'m Kenny, an independent Web Engineer &amp; Consultant based in Kent, UK with over 10 years of professional experience.', 'kennytran'); ?></p>
-                    <p class="u-font-heebo u-font-xl u-font-md-xxxl u-font-xl-xxxxl u-font-bold"><?php _e('I collaborate with design agencies, independent designers and brands to develop beautiful and intuitive digital products that help solve some of the most interesting challenges for businesses of all sizes.', 'kennytran'); ?></p>
-                    <p class="u-font-heebo u-font-xl u-font-md-xxxl u-font-xl-xxxxl u-font-bold"><?php _e('I love building:', 'kennytran'); ?></p>
-                    <p class="u-font-heebo u-font-xl u-font-md-xxxl u-font-xl-xxxxl u-font-bold"><?php _e('Front-end Templates, JAMstack Websites, WordPress Websites, WooCommerce Stores and Shopify Stores', 'kennytran'); ?></p>
+                    <p class="u-text-heebo u-text-xl u-text-md-xxxl u-text-xl-xxxxl u-text-bold"><?php _e('I\'m Kenny, an independent Web Engineer &amp; Consultant based in Kent, UK with over 10 years of professional experience.', 'kennytran'); ?></p>
+                    <p class="u-text-heebo u-text-xl u-text-md-xxxl u-text-xl-xxxxl u-text-bold"><?php _e('I collaborate with design agencies, independent designers and brands to develop beautiful and intuitive digital products that help solve some of the most interesting challenges for businesses of all sizes.', 'kennytran'); ?></p>
+                    <p class="u-text-heebo u-text-xl u-text-md-xxxl u-text-xl-xxxxl u-text-bold"><?php _e('I love building:', 'kennytran'); ?></p>
+                    <p class="u-text-heebo u-text-xl u-text-md-xxxl u-text-xl-xxxxl u-text-bold"><?php _e('Front-end Templates, JAMstack Websites, WordPress Websites, WooCommerce Stores and Shopify Stores', 'kennytran'); ?></p>
                 </div>
             </div>
         </div>
@@ -149,7 +149,7 @@
                         <p><?php _e('"Kenny was knowledgeable, professional and polite.', 'kennytran'); ?></p>
                         <p><?php _e('He kept us updated throughout the process, made amendments when requested and we were highly satisfied with our finished website.', 'kennytran'); ?></p>
                         <p><?php _e('We would highly recommend Kenny to anyone who is looking to hire a web developer."', 'kennytran'); ?></p>
-                        <footer class="o-font--heebo u-font-bold">Claire Robinson, <cite>Mable Therapy</cite></footer>
+                        <footer class="o-font--heebo u-text-bold">Claire Robinson, <cite>Mable Therapy</cite></footer>
                     </blockquote>
                 </div>
             </div>

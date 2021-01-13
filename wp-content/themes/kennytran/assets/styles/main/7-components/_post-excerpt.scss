@@ -29,7 +29,7 @@
             md: map-get($font-sizes, md),
         );
 
-        @extend %u-font-heebo;
+        @extend %u-text-heebo;
 
         display: block;
         margin: 0 0 map-get($spacers, sm);
@@ -62,7 +62,7 @@
             lg: map-get($font-sizes, xxxxl),
         );
 
-        @extend %u-font-din;
+        @extend %u-text-din;
 
         font-size: map-get($font-sizes, xl);
         margin-top: 0;

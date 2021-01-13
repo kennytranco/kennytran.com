@@ -187,7 +187,7 @@
     ***************************************************************************/
 
     .c-jumbotron__statement {
-        @extend %u-font-din;
+        @extend %u-text-din;
 
         @include font-size-fluid(40px, 140px);
 

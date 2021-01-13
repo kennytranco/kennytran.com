@@ -133,7 +133,7 @@
                             <div class="o-grid">
                                 <div class="o-grid__row">
                                     <div class="o-grid__column u-d-md-flex u-items-md-center u-text-center u-text-md-left">
-                                        <p class="u-font-din u-mb-xs u-mb-md-none">Available for new projects from January 2021</p>
+                                        <p class="u-text-din u-mb-xs u-mb-md-none">Available for new projects from January 2021</p>
                                         <?php get_template_part('template-parts/social-icons'); ?>
                                     </div>
                                 </div>

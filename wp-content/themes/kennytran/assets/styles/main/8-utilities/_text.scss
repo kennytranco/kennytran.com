@@ -12,10 +12,10 @@ $text: true;
 $text-breakpoints: (xs, sm, md, lg, xl, xxl);
 
 @if $text {
-    .u-font-light { font-weight: 300!important; }
-    .u-font-normal { font-weight: 400!important; }
-    .u-font-bold { font-weight: 700!important; }
-    .u-font-italic { font-style: italic!important; }
+    .u-text-light { font-weight: 300!important; }
+    .u-text-normal { font-weight: 400!important; }
+    .u-text-bold { font-weight: 700!important; }
+    .u-text-italic { font-style: italic!important; }
 
     .u-text-justify { text-align: justify!important; }
     .u-text-nowrap { white-space: nowrap!important; }
@@ -30,23 +30,23 @@ $text-breakpoints: (xs, sm, md, lg, xl, xxl);
 
     .u-text-hide { @include hide-text(); }
 
-    .u-font-din,
-    %u-font-din {
+    .u-text-din,
+    %u-text-din {
         font-family: $font-din;
         font-weight: normal;
         letter-spacing: 0.2em;
         text-transform: uppercase;
     }
 
-    .u-font-heebo,
-    %u-font-heebo {
+    .u-text-heebo,
+    %u-text-heebo {
         font-family: $font-heebo;
     }
 
 
     @each $fontSizeName, $fontSize in $font-sizes {
-        .u-font-#{$fontSizeName},
-        %u-font-#{$fontSizeName} {
+        .u-text-#{$fontSizeName},
+        %u-text-#{$fontSizeName} {
             @include font-size($fontSize, false);
 
             line-height: $global-line-height-ratio-base!important;
@@ -60,8 +60,8 @@ $text-breakpoints: (xs, sm, md, lg, xl, xxl);
             .u-text-#{$text-breakpoint}-right { text-align: right!important; }
             
             @each $fontSizeName, $fontSize in $font-sizes {
-                .u-font-#{$text-breakpoint}-#{$fontSizeName},
-                %u-font-#{$text-breakpoint}-#{$fontSizeName} {
+                .u-text-#{$text-breakpoint}-#{$fontSizeName},
+                %u-text-#{$text-breakpoint}-#{$fontSizeName} {
                     @include font-size($fontSize, false);
 
                     line-height: $global-line-height-ratio-base!important;
