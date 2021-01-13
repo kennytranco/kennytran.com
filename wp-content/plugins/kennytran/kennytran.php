@@ -33,6 +33,7 @@ function kennytranco_allowed_block_types($allowed_blocks, $post) {
         'core/code',
         'core/columns',
         'core/heading',
+        'core/html',
         'core/image',
         'core/list',
         'core/paragraph',
